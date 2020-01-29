@@ -19,14 +19,14 @@ code {
 }
 
 .table{
-  width: 400px;
+  width: 700px;
   border-bottom:1px solid #cccccc;
   display:flex;
   justify-content: left;
 }
 
 .table p{
-  width:40%;
+  width:30%;
   height:100%;
   padding-top:15px;
   padding-bottom:15px;

@@ -27,7 +27,7 @@ const handle = (props) => {
     );
   };
 
-const wrapperStyle = { width: 400 };
+const wrapperStyle = { width: 700 };
 
 export default function Main(){
     const sp500data = useSelector(state => state.sp500data);
@@ -47,10 +47,10 @@ export default function Main(){
             {
                 (sp500data && sp500data.length > 0)?
                 <>
-                    <ChartItem key={0} year={"Year"} totalReturn={"Total Return"} />
+                    <ChartItem key={0} year={"Year"} totalReturn={"Total Return"} cumulativeReturns={"Cumulative Returns"}/>
                     {
                         sp500data.map(data => (
-                            <ChartItem key={data.year} year={data.year} totalReturn={data.totalReturn} />
+                            <ChartItem key={data.year} year={data.year} totalReturn={data.totalReturn} cumulativeReturns={data.cumulativeReturn}/>
                         ))
                     }
                 </>

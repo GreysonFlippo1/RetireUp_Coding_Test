@@ -11,6 +11,13 @@ export default function ChartItem(props){
                 :
                 <p>{props.totalReturn}</p>
             }
+            {
+                (props.cumulativeReturns < 0) ?
+                <p className="redNumber">{props.cumulativeReturns}</p>
+                :
+                <p>{props.cumulativeReturns}</p>
+            }
+            
         </div>
     )
 }

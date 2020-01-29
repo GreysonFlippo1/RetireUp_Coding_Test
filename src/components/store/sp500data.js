@@ -4,6 +4,7 @@ this is data sourced from https://www.slickcharts.com/sp500/returns/history.json
 data here could also be retrived from an api or database in the future
 */
 
+
 const ALL_DATA = [
     {
     year: 2019,
@@ -383,6 +384,7 @@ const ALL_DATA = [
     }
     ];
 
+
 const GET_SP500DATA = "GET_SP500DATA";
 
 export const getSp500Data = sp500data => ({
@@ -392,7 +394,14 @@ export const getSp500Data = sp500data => ({
 
 
 export const getSp500DataThunk = (lower,upper) => async dispatch => {
+    let returns = 0;
     let filteredData = ALL_DATA.filter(data => data.year >= lower && data.year <= upper);
+
+    for(let i = filteredData.length-1; i >= 0; i--){
+      returns += (Number(filteredData[i].totalReturn)*100);
+      filteredData[i].cumulativeReturn = returns/100;
+    }
+
     dispatch(getSp500Data(filteredData));
 };
 
