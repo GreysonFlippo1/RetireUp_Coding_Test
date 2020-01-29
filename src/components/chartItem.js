@@ -5,7 +5,12 @@ export default function ChartItem(props){
     return(
         <div className="table">
             <p>{props.year}</p>
-            <p>{props.totalReturn}</p>
+            {
+                (props.totalReturn < 0) ?
+                <p className="redNumber">{props.totalReturn}</p>
+                :
+                <p>{props.totalReturn}</p>
+            }
         </div>
     )
 }

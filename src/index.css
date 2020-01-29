@@ -12,5 +12,28 @@ code {
     monospace;
 }
 
+.home_page{
+  width:80vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
 .table{
+  width: 400px;
+  border-bottom:1px solid #cccccc;
+  display:flex;
+  justify-content: left;
+}
+
+.table p{
+  width:40%;
+  height:100%;
+  padding-top:15px;
+  padding-bottom:15px;
+  margin:0px;
+  text-align: left;
+}
+
+.redNumber{
+  color:red;
 }
