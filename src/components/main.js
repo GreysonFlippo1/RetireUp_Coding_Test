@@ -27,7 +27,6 @@ const handle = (props) => {
     );
   };
 
-const wrapperStyle = { width: 700 };
 
 export default function Main(){
     const sp500data = useSelector(state => state.sp500data);
@@ -39,21 +38,28 @@ export default function Main(){
     return(
         <div className="home_page">
             <p>S&amp;P 500 Data</p>
-            <div style={wrapperStyle}>
-                <Range className="yearSelector" min={1926} max={2019} defaultValue={[1926, 2019]} handle={handle} onAfterChange={(value) => {
-                    dispatch(getSp500DataThunk(value[0],value[1]));
-                }} />
+            <div className="options card">
+                <p className="cardTitle">Years Avaliable</p>
+                <div className="yearSelector">
+                    <Range min={1926} max={2019} defaultValue={[1926, 2019]} handle={handle} onAfterChange={(value) => {
+                        dispatch(getSp500DataThunk(value[0],value[1]));
+                    }} />
+                </div>
+                <div className="bounds">
+                    <div className="leftText">1926</div>
+                    <div className="rightText">2019</div>
+                </div>
             </div>
             {
                 (sp500data && sp500data.length > 0)?
-                <>
+                <div  className="tableMain card">
                     <ChartItem key={0} year={"Year"} totalReturn={"Total Return"} cumulativeReturns={"Cumulative Returns"}/>
                     {
                         sp500data.map(data => (
                             <ChartItem key={data.year} year={data.year} totalReturn={data.totalReturn} cumulativeReturns={data.cumulativeReturn}/>
                         ))
                     }
-                </>
+                </div>
                 :
                 <>
                     <p>Data not found.</p>
