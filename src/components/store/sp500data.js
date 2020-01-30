@@ -399,7 +399,7 @@ export const getSp500DataThunk = (lower,upper) => async dispatch => {
 
     for(let i = filteredData.length-1; i >= 0; i--){
       returns += (Number(filteredData[i].totalReturn)*100);
-      filteredData[i].cumulativeReturn = returns/100;
+      filteredData[i].cumulativeReturn = (returns/100).toFixed(2);
     }
 
     dispatch(getSp500Data(filteredData));
