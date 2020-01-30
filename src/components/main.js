@@ -37,7 +37,7 @@ export default function Main(){
 
     return(
         <div className="home_page">
-            <p>S&amp;P 500 Data</p>
+            <div className="header">S&amp;P 500 Total Returns by Year</div>
             <div className="options card">
                 <p className="cardTitle">Years Avaliable</p>
                 <div className="yearSelector">
